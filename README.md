@@ -10,6 +10,8 @@ OpenCV and PIL are used for image handling
 
 !pip install torch torchvision matplotlib opencv-python
 
+
+
 Step 2: Import Required Libraries
 
 import torch  # Core PyTorch library for tensor operations and model inference
@@ -22,6 +24,8 @@ from PIL import Image  # Image processing library
 import cv2  # OpenCV for image handling
 import numpy as np  # Numerical computations
 
+
+
 Step 3: Load Pre-Trained Model
 
 Faster R-CNN pre-trained on COCO dataset is loaded
@@ -30,6 +34,8 @@ The model is set to evaluation mode to avoid training-related computations
 
 model = fasterrcnn_resnet50_fpn(pretrained=True)
 model.eval()  # Set model to evaluation mode
+
+
 
 Step 4: Upload and Test an Image
 
@@ -44,6 +50,8 @@ Convert image to PyTorch tensor
 
 image_tensor = F.to_tensor(image)  # Transform image to tensor
 
+
+
 Step 5: Perform Object Detection
 
 Perform inference using the pre-trained model
@@ -56,6 +64,8 @@ Extract bounding boxes, labels, and scores from the model's output
 boxes = predictions[0]['boxes']  # Bounding box coordinates
 labels = predictions[0]['labels']  # Detected class labels
 scores = predictions[0]['scores']  # Confidence scores
+
+
 
 Step 6: Visualize the Results
 
@@ -80,6 +90,8 @@ plt.figure(figsize=(12, 8))  # Set figure size
 plt.imshow(ToPILImage()(image_with_boxes))  # Display the image with boxes
 plt.axis("off")  # Remove axes for cleaner display
 plt.show()  # Show the visualization
+
+
 
 Step 7: Save the Results
 
